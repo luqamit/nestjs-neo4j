@@ -14,6 +14,7 @@ import { NEO4J_CONFIG, NEO4J_DRIVER } from '../constant';
 import { Neo4jConfig, Query, SessionOptions } from '../interface';
 import { Neo4jMetadataStorage } from '../storage';
 import { TransactionConfig } from 'neo4j-driver-core/types/session';
+import { RecordShape } from 'neo4j-driver-core/types/record';
 
 @Injectable()
 /**
@@ -68,14 +69,14 @@ export class Neo4jService implements OnApplicationShutdown {
   /**
    * Run Cypher query in regular session and close the session after getting results.
    */
-  run(
+  async run<R extends RecordShape = RecordShape>(
     query: Query,
     sessionOptions?: SessionOptions,
     transactionConfig?: TransactionConfig,
-  ): Promise<QueryResult> {
+  ): Promise<QueryResult<R>> {
     const session = this.getSession(sessionOptions);
     return session
-      .run(query.cypher, query.parameters, transactionConfig)
+      .run<R>(query.cypher, query.parameters, transactionConfig)
       .finally(async () => {
         await session.close();
       });
