@@ -18,4 +18,13 @@ export interface ConnectionConfig {
   global?: boolean;
 }
 
+export interface NeptuneConnectionConfig {
+  host: string;
+  port: number | string;
+  region: string;
+  database?: string;
+  global?: boolean;
+}
+
 export type Neo4jConfig = ConnectionConfig & Config;
+export type NeptuneConfig = NeptuneConnectionConfig & Config;

@@ -1,15 +1,17 @@
 <a href="https://nhogs.com"><img src="https://nhogs.com/nhogs_64.png" align="right" alt="nhogs-logo" title="NHOGS Interactive"></a>
 
-# @nhogs/nestjs-neo4j
+# @luqamit/nestjs-neo4j
 
 ## Description
 
 [Neo4j](https://neo4j.com/) module for [Nest.js](https://github.com/nestjs/nest).
 
-[![e2e-test](https://github.com/nhogs/nestjs-neo4j/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/Nhogs/nestjs-neo4j/actions/workflows/e2e-test.yml)
+[![e2e-test](https://github.com/luaqmit/nestjs-neo4j/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/Nhogs/nestjs-neo4j/actions/workflows/e2e-test.yml)
 [![Docker-tested-version](https://img.shields.io/badge/E2e%20tests%20on-neo4j%3A5.10.0--enterprise-blue?logo=docker)](https://registry.hub.docker.com/_/neo4j/tags)
+<!--
 [![Maintainability](https://api.codeclimate.com/v1/badges/2de17798cf9b4d9cfd83/maintainability)](https://codeclimate.com/github/Nhogs/nestjs-neo4j/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/2de17798cf9b4d9cfd83/test_coverage)](https://codeclimate.com/github/Nhogs/nestjs-neo4j/test_coverage)
+-->
 
 ### Peer Dependencies
 
@@ -21,7 +23,7 @@
 [![npm](https://img.shields.io/npm/v/@nhogs/nestjs-neo4j?logo=npm)](https://www.npmjs.com/package/@nhogs/nestjs-neo4j)
 
 ```bash
-$ npm i --save @nhogs/nestjs-neo4j
+$ npm i --save @luqamit/nestjs-neo4j
 ```
 
 ## Usage
