@@ -88,9 +88,9 @@ export const createNeptuneDriver = async (config: NeptuneConfig) => {
   return driver;
 };
 
-const isNeo4jConfig = (
+const isNeptuneConfig = (
   config: NeptuneConfig | Neo4jConfig,
-): config is Neo4jConfig => !!(config as Neo4jConfig).username;
+): config is NeptuneConfig => !!(config as NeptuneConfig).region;
 
 @Module({})
 export class Neo4jModule {
@@ -101,7 +101,7 @@ export class Neo4jModule {
       providers: [
         {
           provide: NEO4J_CONFIG,
-          useValue: isNeo4jConfig(config)
+          useValue: !isNeptuneConfig(config)
             ? config
             : {
                 ...config,
@@ -112,7 +112,7 @@ export class Neo4jModule {
           provide: NEO4J_DRIVER,
           inject: [NEO4J_CONFIG],
           useFactory: async (config: Neo4jConfig | NeptuneConfig) =>
-            isNeo4jConfig(config)
+            !isNeptuneConfig(config)
               ? createDriver(config)
               : createNeptuneDriver(config),
         },
@@ -137,7 +137,7 @@ export class Neo4jModule {
           provide: NEO4J_DRIVER,
           inject: [NEO4J_CONFIG],
           useFactory: async (config: Neo4jConfig | NeptuneConfig) =>
-            isNeo4jConfig(config)
+            !isNeptuneConfig(config)
               ? createDriver(config)
               : createNeptuneDriver(config),
         },
