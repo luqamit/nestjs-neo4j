@@ -12,9 +12,12 @@ import { Neo4jService } from './service';
 export const createDriver = async (config: Neo4jConfig) => {
   const { scheme, host, port, username, password, ...driverConfig } = config;
 
+  const auth =
+    !username || !password ? undefined : neo4j.auth.basic(username, password);
+
   const driver: Driver = neo4j.driver(
     `${scheme}://${host}:${port}`,
-    neo4j.auth.basic(username, password),
+    auth,
     driverConfig,
   );
 

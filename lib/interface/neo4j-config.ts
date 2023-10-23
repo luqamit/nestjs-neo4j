@@ -12,8 +12,8 @@ export interface ConnectionConfig {
   scheme: Neo4jScheme;
   host: string;
   port: number | string;
-  username: string;
-  password: string;
+  username?: string;
+  password?: string;
   database?: string;
   global?: boolean;
 }
